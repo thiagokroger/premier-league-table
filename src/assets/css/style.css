@@ -1,0 +1,41 @@
+* { min-width:0 ;min-height:0 }
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow:hidden;
+    font-family: 'Roboto', serif;
+}
+.md-table{
+    width:100%;
+    font-size:14px;
+    border-collapse:collapse;
+    border-spacing:0px;
+    text-align:center;
+}
+.md-table th,td{
+    padding:8px;
+    font-size:16px;
+    border:#e0e0e0 1px solid;
+}
+.pointer {
+    cursor: pointer;
+}
+.bold{
+    font-weight: bold;
+}
+.scrollable{
+    overflow-y: auto !important
+}
+.fill{
+    min-height: 100% !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    width: 100% !important;
+}
+.relative{
+    position: relative;
+}
+.border-bottom{
+    border-bottom: 1px solid #E0E0E0;
+}

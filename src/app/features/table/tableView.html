@@ -1,0 +1,87 @@
+<div class="bg-red-8 color-white md-whiteframe-z1" layout="row" layout-align="center center" fill>
+    <div class="m-h-16 w-1024" layout="row" layout-align="start center">
+        <div  layout="row" layout-align="start center" flex>
+            <div>
+                <img src="assets/images/premier-league.png" class="w-96">
+            </div>
+            <div layout="column" class="m-l-16 ">
+                <div class="s-150"> Season</div>
+                <div class="m-t-8 s-100"> 2011/2012</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="md-whiteframe-z1 m-v-16 w-600 bg-white" layout="row"  layout-align="start start" layout-wrap>
+    <table class="md-table" fill>
+        <tr class="bg-blue-9 color-white h-48">
+            <th>Pos</th>
+            <th>Team</th>
+            <th>Pld</th>
+            <th hide-sm>W</th>
+            <th hide-sm>D</th>
+            <th hide-sm>L</th>
+            <th>GF</th>
+            <th hide-sm>GA</th>
+            <th>GD</th>
+            <th>Pts</th>
+        </tr>
+        <tr ng-repeat="team in teams | toArray | orderBy:['-points','-goalsDiff','-goalsFor','name']">
+            <td class="bold">{{$index+1}}</td>
+            <td align="left">{{team.name}}</td>
+            <td>{{team.played}}</td>
+            <td hide-sm>{{team.won}}</td>
+            <td hide-sm>{{team.drawn}}</td>
+            <td hide-sm>{{team.lost}}</td>
+            <td>{{team.goalsFor}}</td>
+            <td hide-sm>{{team.goalsAgainst}}</td>
+            <td>{{team.goalsDiff}}</td>
+            <td class="bold">{{team.points}}</td>
+        </tr>
+    </table>
+
+</div>
+<div class="w-16" hide-sm>&nbsp</div>
+<div class="md-whiteframe-z1 m-v-16 bg-white w-400" flex-sm layout="column"  layout-align="start start">
+    <div class="h-48 bg-blue-9 color-white s-120 p-h-8" layout="row"  layout-align="center center" fill>
+        <div layout="row"  layout-align="start center" class="w-32" ng-click="currentHistoryIndex=currentHistoryIndex-1">
+            <md-icon ng-show="currentHistoryIndex>0" class="color-white pointer f-s-32">chevron_left</md-icon>
+        </div>
+        <div layout="row"  layout-align="center center" flex>
+            {{history[currentHistoryIndex].date}}
+        </div>
+        <div layout="row"  layout-align="end center" class="w-32" ng-click="currentHistoryIndex=currentHistoryIndex+1">
+            <md-icon ng-show="currentHistoryIndex<history.length-1" class="color-white pointer f-s-32">chevron_right</md-icon>
+        </div>
+    </div>
+    <div class="p-h-16"  layout="row" layout-align="start start" layout-wrap ng-if="history[0]" fill>
+        <div class="h-64 border-bottom color-grey-8 s-110" layout="row" layout-align="start center" fill ng-repeat="game in history[currentHistoryIndex].games">
+
+            <div hide-sm layout="row" layout-align="start center" flex>
+                {{teams[game.homeTeamId].name}}
+            </div>
+
+            <div layout="row" layout-align="center center" flex>
+                <div class="w-32" layout="row" layout-align="center center">
+                    <img class="w-32" ng-src="assets/images/teams/{{game.homeTeamId}}.png" />
+                </div>
+                <div layout="row" layout-align="center center" class="bold s-150 m-l-8">
+                    {{game.homeGoals}}
+                </div>
+                <div layout="row" layout-align="center center" class="m-h-8">
+                    x
+                </div>
+                <div layout="row" layout-align="center center" class="bold s-150 m-r-8">
+                    {{game.awayGoals}}
+                </div>
+                <div class="w-32" layout="row" layout-align="center center">
+                    <img class="w-32" ng-src="assets/images/teams/{{game.awayTeamId}}.png" />
+                </div>
+            </div>
+
+            <div hide-sm layout="row" layout-align="end center" flex>
+                {{teams[game.awayTeamId].name}}
+            </div>
+        </div>
+    </div>
+
+</div>
