@@ -1,12 +1,12 @@
 # premier-league-table
 Premier League Table  (Angular / WebSocket)
 
-
+- To install dependencies
 sudo npm install
-sudo bower install --allow-root
+bower install
 
-gulp test
-
+- Running on localhost
 gulp serve
 
+- Generating dist
 gulp
