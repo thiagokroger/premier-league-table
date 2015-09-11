@@ -10,6 +10,9 @@
     "angular-ws": "~1.1.0",
     "jquery": "~2.1.1"
   },
+  "devDependencies": {
+    "angular-mocks": "latest"
+  },
   "resolutions": {
     "jquery": "~2.1.1",
     "angular": "latest"

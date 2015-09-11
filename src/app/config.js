@@ -3,7 +3,7 @@ MyApp
     .factory("Config", [function () {
         var factory = {
             getApiUrl : function () {
-                return "http://localhost:8080";
+                return "http://premier-league-api.herokuapp.com";
             }
         };
         return factory;
@@ -11,5 +11,5 @@ MyApp
 
 MyApp
     .config(function (wsProvider) {
-        wsProvider.setUrl('ws://localhost:8080/games');
+        wsProvider.setUrl('ws://premier-league-api.herokuapp.com/games');
     });
